@@ -213,17 +213,3 @@ This is NOT a certified medical diagnostic system.
 MRI Brain Scan Dataset used for training Alzheimer classification model.
 
 ---
-
-# ⭐ Support
-
-If you found this project useful:
-
-⭐ Star the repository  
-🍴 Fork the project  
-🧠 Contribute improvements  
-
----
-
-# 📜 License
-
-This project is licensed under the MIT License.

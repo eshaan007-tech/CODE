@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ALZ-Detection | Result</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body {
+    background: #f9fbff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    background-color: #003d66;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: 1.1px;
+  }
+  nav .nav-links a,
+  nav .nav-links form button {
+    color: #b3cde0;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  nav .nav-links a:hover,
+  nav .nav-links form button:hover {
+    color: #fff;
+  }
+  main {
+    flex-grow: 1;
+    padding: 3rem 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .result-box {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(0, 61, 102, 0.12);
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #003d66;
+  }
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  .class-name {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #0059b3;
+  }
+  .confidence {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #0066cc;
+  }
+  a.btn {
+    display: inline-block;
+    background: #0059b3;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.9rem 2.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(0, 89, 179, 0.35);
+    transition: background-color 0.3s ease;
+  }
+  a.btn:hover {
+    background: #003d66;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/index" class="logo">ALZ-Detection</a>
+  <div class="nav-links">
+    <a href="/chart">Chart</a>
+    <a href="/performance">Performance</a>
+    <form method="GET" action="/logout" style="display:inline;">
+      <button type="submit">Logout</button>
+    </form>
+  </div>
+</nav>
+
+<main>
+  <div class="result-box">
+    <h2>Prediction Result</h2>
+    <p>The uploaded brain MRI image has been classified as:</p>
+    <p class="class-name">{{ predicted_class }}</p>
+    <p>Confidence Score: <span class="confidence">{{ (confidence * 100) | round(2) }}%</span></p>
+    <a href="/index" class="btn">Predict Another</a>
+  </div>
+</main>
+
+</body>
+</html>

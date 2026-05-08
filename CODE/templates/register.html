@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ALZ-Detection | Register</title>
+<style>
+  /* Reuse login styles */
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body {
+    background: #f3f7fc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    background-color: #003d66;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: 1.1px;
+  }
+  nav .nav-links a {
+    color: #b3cde0;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  nav .nav-links a:hover {
+    color: #fff;
+  }
+  main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+  }
+  .form-container {
+    background: white;
+    max-width: 400px;
+    width: 100%;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 61, 102, 0.15);
+  }
+  h2 {
+    color: #003d66;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: center;
+    font-size: 2rem;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+  label {
+    font-weight: 600;
+    color: #444;
+  }
+  input[type="text"],
+  input[type="password"] {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 1.8px solid #cbd7e9;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-color: #0059b3;
+    outline: none;
+    box-shadow: 0 0 6px #0059b3aa;
+  }
+  button {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    background: #0059b3;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0, 89, 179, 0.35);
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #003d66;
+  }
+  .extra {
+    margin-top: 1.4rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  .extra a {
+    color: #0059b3;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .extra a:hover {
+    text-decoration: underline;
+  }
+  .flash-message {
+    margin-bottom: 1rem;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  .flash-success { background-color: #d1e7dd; color: #0f5132; }
+  .flash-danger { background-color: #f8d7da; color: #842029; }
+  .flash-warning { background-color: #fff3cd; color: #664d03; }
+  .flash-info { background-color: #cff4fc; color: #055160; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">ALZ-Detection</a>
+  <div class="nav-links">
+    <a href="/login">Login</a>
+  </div>
+</nav>
+
+<main>
+  <div class="form-container">
+
+    <h2>Create a New Account</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/register" autocomplete="off">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" required autofocus />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required />
+
+      <label for="confirm_password">Confirm Password</label>
+      <input id="confirm_password" name="confirm_password" type="password" required />
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p class="extra">
+      Already have an account? <a href="/login">Login here</a>
+    </p>
+  </div>
+</main>
+
+</body>
+</html>

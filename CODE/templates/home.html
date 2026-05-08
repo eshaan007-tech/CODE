@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ALZ-Detection | Home</title>
+<style>
+  /* Reset & base */
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body {
+    background: linear-gradient(135deg, #e6f0ff, #ffffff);
+    color: #1b1b1b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    background-color: #003d66;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .logo {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: 1.1px;
+  }
+  nav .nav-links a {
+    color: #b3cde0;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  nav .nav-links a:hover {
+    color: #ffffff;
+  }
+  main {
+    flex-grow: 1;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #003d66;
+    margin-bottom: 1rem;
+  }
+  p.lead {
+    font-size: 1.3rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .btn {
+    background-color: #0059b3;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2.8rem;
+    border-radius: 40px;
+    box-shadow: 0 6px 14px rgba(0, 89, 179, 0.35);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  .btn:hover {
+    background-color: #003d66;
+  }
+  footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    color: #777;
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">ALZ-Detection</a>
+  <div class="nav-links">
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Early Alzheimer’s Detection with AI</h1>
+  <p class="lead">
+    ALZ-Detection is an advanced AI-powered platform designed to analyze brain MRI scans and classify Alzheimer’s disease progression stages accurately.  
+    Early diagnosis plays a critical role in patient care, treatment planning, and improved outcomes.  
+    Upload your brain MRI images and get instant predictions with confidence scores.  
+    Experience cutting-edge healthcare technology today.
+  </p>
+  <div class="btn-group">
+    <a href="/login" class="btn">Login</a>
+    <a href="/register" class="btn">Register</a>
+  </div>
+</main>
+
+<footer>© 2025 ALZ-Detection Project</footer>
+
+</body>
+</html>

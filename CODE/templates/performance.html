@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ALZ-Detection | Performance</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body {
+    background: #f9fbff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    background-color: #003d66;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: 1.1px;
+  }
+  nav .nav-links a,
+  nav .nav-links form button {
+    color: #b3cde0;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  nav .nav-links a:hover,
+  nav .nav-links form button:hover {
+    color: #fff;
+  }
+  main {
+    flex-grow: 1;
+    padding: 3rem 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #003d66;
+    text-align: center;
+  }
+  .stats {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(0, 61, 102, 0.12);
+    padding: 2.5rem 2rem;
+    font-size: 1.1rem;
+    color: #222;
+  }
+  .stats ul {
+    list-style: none;
+    max-width: 360px;
+    margin: 0 auto;
+    padding-left: 0;
+  }
+  .stats ul li {
+    padding: 12px 10px;
+    border-bottom: 1px solid #dce9ff;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+  }
+  .stats ul li:last-child {
+    border-bottom: none;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/index" class="logo">ALZ-Detection</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/index">Predict</a>
+    <a href="/chart">Chart</a>
+    <a href="/logout" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Logout</a>
+    <form id="logoutForm" action="/logout" method="GET" style="display:none;"></form>
+  </div>
+</nav>
+
+<main>
+  <h2>Model Performance Metrics</h2>
+  <section class="stats">
+    <ul>
+      <li><span>Accuracy:</span> <span>{{ stats.accuracy }}</span></li>
+      <li><span>Loss:</span> <span>{{ stats.loss }}</span></li>
+      <li><span>Validation Accuracy:</span> <span>{{ stats.val_accuracy }}</span></li>
+      <li><span>Validation Loss:</span> <span>{{ stats.val_loss }}</span></li>
+      <li><span>Epochs Trained:</span> <span>{{ stats.epochs }}</span></li>
+    </ul>
+  </section>
+</main>
+
+</body>
+</html>

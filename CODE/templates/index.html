@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ALZ-Detection | Predict</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body {
+    background: #f9fbff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    background-color: #003d66;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: 1.1px;
+  }
+  nav .nav-links a,
+  nav .nav-links button.logout-button {
+    color: #b3cde0;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  nav .nav-links a:hover,
+  nav .nav-links button.logout-button:hover {
+    color: #fff;
+  }
+  main {
+    flex-grow: 1;
+    padding: 3rem 1rem;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .upload-container {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(0, 61, 102, 0.12);
+    text-align: center;
+  }
+  h2 {
+    color: #003d66;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2.2rem;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  input[type="file"] {
+    border: 2px dashed #0059b3;
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  input[type="file"]:hover {
+    background-color: #e1eaff;
+  }
+  button {
+    padding: 1rem 2.8rem;
+    font-weight: 700;
+    background: #0059b3;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    box-shadow: 0 6px 14px rgba(0, 89, 179, 0.35);
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #003d66;
+  }
+  .flash-message {
+    margin-bottom: 1rem;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  .flash-danger { background-color: #f8d7da; color: #842029; }
+  .flash-warning { background-color: #fff3cd; color: #664d03; }
+  .flash-success { background-color: #d1e7dd; color: #0f5132; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/index" class="logo">ALZ-Detection</a>
+  <div class="nav-links">
+    <a href="/chart">Chart</a>
+    <a href="/performance">Performance</a>
+    <form method="GET" action="/logout" style="display:inline;">
+      <button class="logout-button" type="submit">Logout</button>
+    </form>
+  </div>
+</nav>
+
+<main>
+  <div class="upload-container">
+    <h2>Upload Brain MRI Image for Prediction</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/index" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" required />
+      <button type="submit">Predict</button>
+    </form>
+  </div>
+</main>
+
+</body>
+</html>
